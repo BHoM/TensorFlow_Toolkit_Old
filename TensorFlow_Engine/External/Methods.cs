@@ -21,12 +21,12 @@
  */
 
 
+using BH.Engine.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using Tensorflow;
 
 namespace BH.Engine.TensorFlow
 {
@@ -38,7 +38,25 @@ namespace BH.Engine.TensorFlow
 
         public static List<MethodInfo> Methods()
         {
+            Dictionary<string, MethodInfo> methodsDictionary = new Dictionary<string, MethodInfo>();
 
+            List<Type> typesToExplore = typeof(Tensor).Assembly.GetTypes().ToList();
+
+            foreach (Type type in typesToExplore)
+            {
+                List<MethodInfo> typeMethods = type.NestedMethods();
+                // NDarray and NDarray<> contain methods that are duplicated in the np.np class
+                // We are not adding them
+                for (int i = 0; i < typeMethods.Count; i++)
+                {
+                    MethodInfo methodInstance = typeMethods[i];
+                    if (!methodsDictionary.ContainsKey(methodInstance.Name))
+                        methodsDictionary.Add(methodInstance.Name, methodInstance);
+                }
+            }
+
+            List<MethodInfo> methods = methodsDictionary.Values.ToList();
+            return methods.Where(x => x != null).ToList();
         }
     }
 }

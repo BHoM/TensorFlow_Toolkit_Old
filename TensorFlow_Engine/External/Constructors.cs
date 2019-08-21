@@ -36,9 +36,9 @@ namespace BH.Engine.TensorFlow
         /**** Public Methods                            ****/
         /***************************************************/
 
-        public static List<MethodInfo> Constructors()
-        {
+        //public static List<MethodInfo> Constructors()
+        //{
 
-        }
+        //}
     }
 }
