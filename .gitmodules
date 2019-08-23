@@ -1,3 +1,6 @@
 [submodule "tensorflow.net"]
 	path = tensorflow.net
 	url = https://github.com/scisharp/tensorflow.net.git
+[submodule "keras.net"]
+	path = keras.net
+	url = https://github.com/scisharp/keras.net.git
