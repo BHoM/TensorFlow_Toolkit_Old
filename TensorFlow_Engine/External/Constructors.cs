@@ -21,12 +21,12 @@
  */
 
 
+using BH.Engine.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using Tensorflow;
 
 namespace BH.Engine.TensorFlow
 {
@@ -36,9 +36,26 @@ namespace BH.Engine.TensorFlow
         /**** Public Methods                            ****/
         /***************************************************/
 
-        //public static List<MethodInfo> Constructors()
-        //{
+        public static List<ConstructorInfo> Constructors()
+        {
+            List<ConstructorInfo> constructors = new List<ConstructorInfo>();
 
-        //}
+            List<Type> typesToExplore = typeof(Tensor).Assembly.GetTypes().ToList();
+            List<Type> searchMe = new List<Type>(typesToExplore);
+
+            foreach (Type type in searchMe)
+            {
+                Type[] nestedTypes = type.GetNestedTypes();
+                while (nestedTypes.Length > 0)
+                    typesToExplore.AddRange(nestedTypes);
+            }
+
+            foreach (Type type in typesToExplore)
+            {
+                constructors.AddRange(type.GetConstructors());
+            }
+
+            return constructors.Where(x => x != null).ToList();
+        }
     }
 }
