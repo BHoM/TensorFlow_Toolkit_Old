@@ -44,12 +44,10 @@ namespace BH.Engine.Keras
             foreach (Type type in typesToExplore)
             {
                 List<MethodInfo> typeMethods = type.NestedMethods();
-                // NDarray and NDarray<> contain methods that are duplicated in the np.np class
-                // We are not adding them
                 for (int i = 0; i < typeMethods.Count; i++)
                 {
                     MethodInfo methodInstance = typeMethods[i];
-                    if (!methodsDictionary.ContainsKey(methodInstance.Name))
+                    if (!methodsDictionary.ContainsKey(methodInstance.Name) && !methodInstance.DeclaringType.Namespace.Contains("System"))
                         methodsDictionary.Add(methodInstance.Name, methodInstance);
                 }
             }
