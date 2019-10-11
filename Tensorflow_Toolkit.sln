@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tensorflow_Engine", "Tensorflow_Engine\Tensorflow_Engine.csproj", "{F044D308-0988-4221-B41C-F2BADF7B805A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TensorFlowNET.Core", "tensorflow.net\src\TensorFlowNET.Core\TensorFlowNET.Core.csproj", "{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{F044D308-0988-4221-B41C-F2BADF7B805A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F044D308-0988-4221-B41C-F2BADF7B805A}.Release|x64.ActiveCfg = Release|x64
 		{F044D308-0988-4221-B41C-F2BADF7B805A}.Release|x64.Build.0 = Release|x64
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Debug|x64.Build.0 = Debug|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Release|x64.ActiveCfg = Release|Any CPU
+		{7012C3A0-9C67-4E00-AB97-79CEABA2EF70}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
